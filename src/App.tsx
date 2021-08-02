@@ -1,23 +1,28 @@
-import React from 'react';
-import './App.css';
+import React, { useCallback, useEffect, useRef } from 'react';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import Cube from './Cube';
+import DrawLine from './DrawLine';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <ul>
+        <li>
+          <Link to="/cube">Cube</Link>
+        </li>
+        <li>
+          <Link to="/draw-line">DrawLine</Link>
+        </li>
+      </ul>
+      <Switch>
+        <Route path="/cube">
+          <Cube />
+        </Route>
+        <Route path="/draw-line">
+          <DrawLine />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
